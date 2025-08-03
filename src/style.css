@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+input {
+  	border: white 2px solid;
+}
+
+.primerPlato, .segundoPlato {
+	width: 80%;
+	margin-bottom: 5%;
+}
+
+.botonDesactivado {
+	background-color: #ccc !important;
+	cursor: not-allowed;
+}
+
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slideDown {
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.slideUp {
+  animation: slideUp 0.4s ease-in forwards;
+}
