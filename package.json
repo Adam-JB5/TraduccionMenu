@@ -1,18 +1,22 @@
 {
   "name": "traduccionmenu",
+  "homepage": "https://adam-jb5.github.io/TraduccionMenu/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "vite": "^7.0.4"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
+    "docx": "^9.5.1",
+    "file-saver": "^2.0.5",
     "gh-pages": "^6.3.0",
     "tailwindcss": "^4.1.11"
   }

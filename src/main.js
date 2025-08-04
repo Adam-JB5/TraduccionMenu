@@ -41,12 +41,14 @@ function inicio() {
 
 		arrayPrimeros.forEach(element => {
 			if (element.value != null && element.value != "") {
-			console.log("Primer plato:", element.value);
+				console.log("Primer plato:", element.value);
 			}
 		});
 
 		arraySegundos.forEach(element => {
-			console.log("Segundo plato:", element.value);
+			if (element.value != null && element.value != "") {
+				console.log("Segundo plato:", element.value);
+			}
 		});
 
 
