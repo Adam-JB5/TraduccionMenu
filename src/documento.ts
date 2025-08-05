@@ -4,7 +4,10 @@ import {
   Paragraph,
   TextRun,
   AlignmentType,
-  ImageRun
+  ImageRun,
+  HorizontalPositionAlign,
+  HorizontalPositionRelativeFrom,
+  VerticalPositionRelativeFrom,
 } from "docx";
 import { saveAs } from "file-saver";
 
@@ -16,7 +19,7 @@ const imagen = (text: string) =>
   new Paragraph({
     alignment: AlignmentType.CENTER,
     spacing: {
-      line: 360,
+      line: 240,
       lineRule: "auto",
     },
     children: [
@@ -31,7 +34,7 @@ const menu = (text: string) =>
   new Paragraph({
     alignment: AlignmentType.CENTER,
     spacing: {
-      line: 360,
+      line: 240,
       lineRule: "auto",
     },
     children: [
@@ -49,7 +52,7 @@ const aperitivo = (text: string) =>
   new Paragraph({
     alignment: AlignmentType.CENTER,
     spacing: {
-      line: 360,
+      line: 240,
       lineRule: "auto",
     },
     children: [
@@ -160,7 +163,7 @@ const final = (text: string) =>
         italics: true,
         size: 10 * 2,
         font: "Century Gothic",
-        color: "0000ff",
+        color: "2F75B5",
       }),
     ],
   });
@@ -183,41 +186,75 @@ const espacios = (text: string) =>
 
 /* ********************************************** */
 
-/* const logo = await fetch("logo.jpg").then(res => res.arrayBuffer());
-const qr = await fetch("/src/qr.png").then(res => res.arrayBuffer()); */
-
 
 const generateDoc = async () => {
+
+  const logoB = await fetch("/TraduccionMenu/logo.jpg").then(res => res.arrayBuffer());
+  const qrB = await fetch("/TraduccionMenu/qr.png").then(res => res.arrayBuffer());
+
   const doc = new Document({
     sections: [
       {
+        properties: {
+          page: {
+            margin: {
+              top: 720,      // 1.27 cm
+              bottom: 720,   // puede ajustar si desea
+              left: 720,
+              right: 567,
+            },
+          },
+        },
         children: [
-          /* new Paragraph({
+          new Paragraph({
             alignment: AlignmentType.CENTER,
+            spacing: {
+              line: 240,
+              lineRule: "auto",
+            },
             children: [
               new ImageRun({
                 type: "jpg",
-                data: logo,
+                data: logoB,
                 transformation: {
-                  width: 300,
-                  height: 150,
+                  width: 251,
+                  height: 83,
+                },
+              }),
+              new ImageRun({
+                type: "png",
+                data: qrB,
+                transformation: {
+                  width: 66,
+                  height: 66,
+                },
+                floating: {
+                  horizontalPosition: {
+                    relative: HorizontalPositionRelativeFrom.MARGIN, // Puede usar PAGE o MARGIN
+                    align: HorizontalPositionAlign.RIGHT,
+                  },
+                  verticalPosition: {
+                    relative: VerticalPositionRelativeFrom.PARAGRAPH,
+                    offset: 0, // o el valor que necesite
+                  },
                 },
               }),
             ],
           }),
-          new Paragraph({
+          /* new Paragraph({
             alignment: AlignmentType.CENTER,
             children: [
               new ImageRun({
                 type: "png",
-                data: qr,
+                data: qrB,
                 transformation: {
-                  width: 300,
-                  height: 150,
+                  width: 66,
+                  height: 66,
                 },
               }),
             ],
           }), */
+          espacios(""),
           menu("MENÚ ESPECIAL"),
           espacios(""),
           aperitivo("APERITIVO DE BIENVENIDA"),
