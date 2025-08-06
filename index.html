@@ -6,36 +6,66 @@
 	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Vite App</title>
-  <script type="module" crossorigin src="/TraduccionMenu/assets/index-DNLrm8V9.js"></script>
-  <link rel="stylesheet" crossorigin href="/TraduccionMenu/assets/index-BuYLbsQo.css">
+  <script type="module" crossorigin src="/TraduccionMenu/assets/index-BtdfhO74.js"></script>
+  <link rel="stylesheet" crossorigin href="/TraduccionMenu/assets/index-DzvD69sL.css">
 </head>
 
-<body class="bg-[#0b0c26]">
-	<div class="h-full w-full text-white text-center">
-		<h1 class="text-7xl py-5">TRADUCTOR DE MENÚS</h1>
+<body class="bg-[#0d0312] text-[#F4FAFF] min-h-screen flex flex-col items-center justify-center font-sans">
+	<main class="w-full max-w-5xl px-6 py-10">
+		<h1 class="text-5xl lg:text-6xl font-bold text-center mb-12 tracking-wide">TRADUCTOR DE MENÚS <span class="text-4xl lg:text-5xl text-gray-500">ⓘ</span></h1>
 
-		<div class="w-full flex justify-center items-center">
-			<div class="bg-amber-300 w-1/2 flex flex-col justify-center items-center">
-				<h2>PRIMEROS</h2>
-
-				<input class="primerPlato" type="text">
-
-				<button id="annadirPrimero" class="bg-amber-300 rounded-md p-2 mt-4">+ AÑADIR</button>
+		<section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<!-- Primeros -->
+			<div class="bg-[#2a0e43] text-white rounded-2xl shadow-lg p-6 flex flex-col items-center">
+				<h2 class="text-2xl font-semibold mb-4">PRIMEROS</h2>
+				<div id="divInputsPrimeros" class="w-full space-y-3 text-center">
+					<input
+						class="primerPlato w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						type="text" placeholder="Ingrese un plato">
+					<input
+						class="primerPlato w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						type="text" placeholder="Ingrese un plato">
+					<input
+						class="primerPlato w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						type="text" placeholder="Ingrese un plato">
+					<input
+						class="primerPlato w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						type="text" placeholder="Ingrese un plato">
+				</div>
+				<button id="annadirPrimero" class="mt-6 bg-[#0a921e] text-white px-6 py-2 rounded-md hover:bg-[#306d3a] active:scale-125 active:bg-[#18351c] transition">+Añadir campo</button>
 			</div>
 
-			<div class="bg-amber-700 w-1/2 flex flex-col justify-center items-center">
-				<h2>SEGUNDOS</h2>	
-
-				<input class="segundoPlato" type="text">
-
-				<button id="annadirSegundo" class="bg-amber-300 rounded-md p-2 mt-4">+ AÑADIR</button>
+			<!-- Segundos -->
+			<div class="bg-[#2a0e43] text-white rounded-2xl shadow-lg p-6 flex flex-col items-center">
+				<h2 class="text-2xl font-semibold mb-4">SEGUNDOS</h2>
+				<div id="divInputsSegundos" class="w-full space-y-3 text-center">
+					<input
+						class="segundoPlato w-full p-2 rounded-md border border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-300"
+						type="text" placeholder="Ingrese un plato">
+					<input
+						class="segundoPlato w-full p-2 rounded-md border border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-300"
+						type="text" placeholder="Ingrese un plato">
+					<input
+						class="segundoPlato w-full p-2 rounded-md border border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-300"
+						type="text" placeholder="Ingrese un plato">
+					<input
+						class="segundoPlato w-full p-2 rounded-md border border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-300"
+						type="text" placeholder="Ingrese un plato">
+				</div>
+				<button id="annadirSegundo" class="mt-6 bg-[#0a921e] text-white px-6 py-2 rounded-md hover:bg-[#306d3a] active:scale-125 active:bg-[#18351c] transition">+Añadir campo</button>
 			</div>
+		</section>
+
+		<!-- Botones Inferiores -->
+		<div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+			<button id="recogerPlatos"
+				class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md transition">Recoger Platos</button>
+				<button id="recogerPlatos"
+				class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition">CONFIRMAR ✅</button>
+			<button id="descargarMenu"
+				class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md transition">Descargar</button>
 		</div>
-
-		<button id="recogerPlatos">RECOGER PLATOS</button>
-
-		<button id="descargarMenu">DESCARGAR</button>
-	</div>
+	</main>
 </body>
 
 </html>
