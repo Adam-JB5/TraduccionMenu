@@ -16,7 +16,10 @@ function inicio() {
 	});
 
 	function annadirCampo(cat, boton) {
+		/* Campos maximos */
 		let maxCampos = 6;
+
+		/* Clase que se añade segun es se pasa por argumento primero */
 		let clase = cat === "primero" ? "primerPlato" : "segundoPlato";
 		let camposActuales = document.querySelectorAll("." + clase).length;
 
@@ -31,8 +34,15 @@ function inicio() {
 
 		let input = document.createElement("input");
 		input.classList.add(clase);
+		input.classList.add("w-full", "p-2", "rounded-md", "border", "border-gray-300", "focus:outline-none", "focus:ring-2", "focus:ring-amber-500");
+		input.setAttribute("placeholder", "Ingrese un plato");
 
-		boton.parentNode.insertBefore(input, boton);
+
+		if (cat === "primero") {
+			document.getElementById("divInputsPrimeros").appendChild(input);
+		} else {
+			document.getElementById("divInputsSegundos").appendChild(input);
+		}
 	}
 
 	botonRecogerPlatos.addEventListener("click", () => {

@@ -12,6 +12,7 @@ input {
 .botonDesactivado {
 	background-color: #ccc !important;
 	cursor: not-allowed;
+  color: white;
 }
 
 
