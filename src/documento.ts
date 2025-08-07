@@ -187,7 +187,7 @@ const espacios = (text: string) =>
 /* ********************************************** */
 
 
-const generateDoc = async () => {
+export async function generateDoc(arrayPrimeros, arraySegundos) {
 
   const logoB = await fetch("/TraduccionMenu/logo.jpg").then(res => res.arrayBuffer());
   const qrB = await fetch("/TraduccionMenu/qr.png").then(res => res.arrayBuffer());
@@ -257,23 +257,13 @@ const generateDoc = async () => {
           espacios(""),
           menu("MENÚ ESPECIAL"),
           espacios(""),
+          espacios(""),
           aperitivo("APERITIVO DE BIENVENIDA"),
           simbolo("****"),
-          normal("*ENSALADA DE LANGOSTINOS Y SALMÓN CON ALIÑO DE MIEL Y MOSTAZA"),
-          normal("SOBRE TULIPA DE PASTA FILO"),
-          normal("*PUERROS CONFITADOS CON ESPUMA DE AJOBLANCO"),
-          normal("*ARROZ NEGRE CON JIBION EN SU TINTA"),
-          normal("*VOLOVAN RELLENO DE PUERROS Y GAMBAS"),
-          normal("*CAZUELITA DE ALMEJAS Y MEJILLONES EN SALSA MARINERA"),
-          normal("*MARMITAKO DE BONITO"),
-          simbolo("............................."),
-          normal("*BACALAO A LA VIZCAÍNA"),
-          normal("*MERLUZA BRASEADA CON SU REFRITO Y PATATA PANADERA"),
-          normal("*BONITO DE TEMPORADA ENCEBOLLADO"),
-          normal("*ENTRECOT GRILLÉ CON PATATAS FRITAS Y PIMIENTOS DEL PAÍS"),
-          normal("*RABO ESTOFADO EN SU JUGO CON PARMENTIER"),
-          normal("*CONFIT DE PATO CON COMPOTA DE MANZANA A LA REDUCCIÓN DE PEDRO XIMÉNEZ"),
-          simbolo("..................................."),
+          ...arrayPrimeros.map(p => normal(`*${p}`)),
+          simbolo("......................................................................................."),
+           ...arraySegundos.map(p => normal(`*${p}`)),
+          simbolo("............................................................................................."),
           normal("*SURTIDO DE POSTRES CASEROS"),
           espacios(""),
           bodega("BODEGA NO INCLUIDA"),
@@ -293,8 +283,3 @@ const generateDoc = async () => {
   const blob = await Packer.toBlob(doc);
   saveAs(blob, "menu_especial.docx");
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("descargarMenu") as HTMLButtonElement;
-  btn?.addEventListener("click", generateDoc);
-});

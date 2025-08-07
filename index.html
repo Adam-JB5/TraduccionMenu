@@ -13,58 +13,60 @@
 
 <body class="bg-[#0d0312] text-[#F4FAFF] min-h-screen flex flex-col items-center justify-center font-sans">
 	<main class="w-full max-w-5xl px-6 py-10">
-		<h1 class="text-5xl lg:text-6xl font-bold text-center mb-12 tracking-wide">TRADUCTOR DE MENÚS <span class="text-4xl lg:text-5xl text-gray-500">ⓘ</span></h1>
+		<div id="botonInformacion" class="absolute top-5 right-5 text-md lg:text-3xl px-1.5 pb-1 bg-blue-950 rounded-md hover:bg-blue-800">ⓘ</div>
+
+		<h1 class="text-5xl lg:text-6xl font-bold text-center mb-12 tracking-wide">TRADUCTOR DE MENÚS</h1>
 
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-8">
 			<!-- Primeros -->
 			<div class="bg-[#2a0e43] text-white rounded-2xl shadow-lg p-6 flex flex-col items-center">
 				<h2 class="text-2xl font-semibold mb-4">PRIMEROS</h2>
 				<div id="divInputsPrimeros" class="w-full space-y-3 text-center">
-					<input
-						class="primerPlato w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
-						type="text" placeholder="Ingrese un plato">
-					<input
-						class="primerPlato w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
-						type="text" placeholder="Ingrese un plato">
-					<input
-						class="primerPlato w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
-						type="text" placeholder="Ingrese un plato">
-					<input
-						class="primerPlato w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
-						type="text" placeholder="Ingrese un plato">
+					<textarea 
+						class="primerPlato placeholder-gray-400 w-full resize-none h-14 will-change-scroll p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						placeholder="Ingrese un plato" spellcheck="true"></textarea>
+					<textarea 
+						class="primerPlato placeholder-gray-400 w-full resize-none h-14 will-change-scroll p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						placeholder="Ingrese un plato" spellcheck="true"></textarea>
+					<textarea 
+						class="primerPlato placeholder-gray-400 w-full resize-none h-14 will-change-scroll p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						placeholder="Ingrese un plato" spellcheck="true"></textarea>
+					<textarea 
+						class="primerPlato placeholder-gray-400 w-full resize-none h-14 will-change-scroll p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						placeholder="Ingrese un plato" spellcheck="true"></textarea>
 				</div>
-				<button id="annadirPrimero" class="mt-6 bg-[#0a921e] text-white px-6 py-2 rounded-md hover:bg-[#306d3a] active:scale-125 active:bg-[#18351c] transition">+Añadir campo</button>
+				<button id="annadirPrimero"
+					class="mt-6 bg-[#0a921e] text-white px-6 py-2 rounded-md hover:bg-[#306d3a] active:scale-125 active:bg-[#18351c] transition">+Añadir
+					campo</button>
 			</div>
 
 			<!-- Segundos -->
 			<div class="bg-[#2a0e43] text-white rounded-2xl shadow-lg p-6 flex flex-col items-center">
 				<h2 class="text-2xl font-semibold mb-4">SEGUNDOS</h2>
 				<div id="divInputsSegundos" class="w-full space-y-3 text-center">
-					<input
-						class="segundoPlato w-full p-2 rounded-md border border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-300"
-						type="text" placeholder="Ingrese un plato">
-					<input
-						class="segundoPlato w-full p-2 rounded-md border border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-300"
-						type="text" placeholder="Ingrese un plato">
-					<input
-						class="segundoPlato w-full p-2 rounded-md border border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-300"
-						type="text" placeholder="Ingrese un plato">
-					<input
-						class="segundoPlato w-full p-2 rounded-md border border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-300"
-						type="text" placeholder="Ingrese un plato">
+					<textarea 
+						class="segundoPlato placeholder-gray-400 w-full resize-none h-14 will-change-scroll p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						placeholder="Ingrese un plato" spellcheck="true"></textarea>
+					<textarea 
+						class="segundoPlato placeholder-gray-400 w-full resize-none h-14 will-change-scroll p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						placeholder="Ingrese un plato" spellcheck="true"></textarea>
+					<textarea 
+						class="segundoPlato placeholder-gray-400 w-full resize-none h-14 will-change-scroll p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						placeholder="Ingrese un plato" spellcheck="true"></textarea>
+					<textarea 
+						class="segundoPlato placeholder-gray-400 w-full resize-none h-14 will-change-scroll p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+						placeholder="Ingrese un plato" spellcheck="true"></textarea>
 				</div>
-				<button id="annadirSegundo" class="mt-6 bg-[#0a921e] text-white px-6 py-2 rounded-md hover:bg-[#306d3a] active:scale-125 active:bg-[#18351c] transition">+Añadir campo</button>
+				<button id="annadirSegundo"
+					class="mt-6 bg-[#0a921e] text-white px-6 py-2 rounded-md hover:bg-[#306d3a] active:scale-125 active:bg-[#18351c] transition">+Añadir
+					campo</button>
 			</div>
 		</section>
 
 		<!-- Botones Inferiores -->
 		<div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
 			<button id="recogerPlatos"
-				class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md transition">Recoger Platos</button>
-				<button id="recogerPlatos"
 				class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition">CONFIRMAR ✅</button>
-			<button id="descargarMenu"
-				class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md transition">Descargar</button>
 		</div>
 	</main>
 </body>

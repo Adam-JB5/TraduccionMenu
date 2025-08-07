@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
+    "animate.css": "^4.1.1",
     "docx": "^9.5.1",
     "file-saver": "^2.0.5",
     "gh-pages": "^6.3.0",
