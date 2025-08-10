@@ -1,5 +1,6 @@
 import { mostrarError, mostrarExito } from "./utils";
 import { generateDoc } from "./documento.ts";
+import { generateDocIngles } from "./documentoIngles.ts";
 
 document.addEventListener("DOMContentLoaded", inicio);
 
@@ -63,6 +64,8 @@ function inicio() {
 		resumen();
 	});
 
+
+
 	function resumen() {
 
 		const { primeros, segundos } = recogerPlatos();
@@ -95,7 +98,9 @@ function inicio() {
 				</div>
 			</div>
 
-			<div class="mt-6">
+			<hr class="my-6">
+
+			<div>
 				<h2 class="font-bold text-lg mb-2">SEGUNDOS</h2>
 				<div class="grid grid-cols-2 gap-6">
 					<div>
@@ -137,6 +142,10 @@ function inicio() {
 			listaSegundos.appendChild(li);
 		});
 
+		traduccion(primeros, segundos);
+
+		descargarDocumentos();
+
 		dialogo.showModal();
 
 		// Cierre por botón
@@ -154,6 +163,35 @@ function inicio() {
 		});
 	}
 
+	function descargarDocumentos() {
+		let botonDescargar = document.getElementById("descargarDocumentos");
+
+		let arrayPrimerosES = [];
+		let arrayPrimerosEN = [];
+		let arraySegundosES = [];
+		let arraySegundosEN = [];
+
+		botonDescargar.addEventListener("click", () => {
+
+			// Obtener valores de cada lista
+			arrayPrimerosES = Array.from(document.querySelectorAll("#listaPrimerosES li"))
+				.map(li => li.textContent.trim());
+
+			arrayPrimerosEN = Array.from(document.querySelectorAll("#listaPrimerosEN li"))
+				.map(li => li.textContent.trim());
+
+			arraySegundosES = Array.from(document.querySelectorAll("#listaSegundosES li"))
+				.map(li => li.textContent.trim());
+
+			arraySegundosEN = Array.from(document.querySelectorAll("#listaSegundosEN li"))
+				.map(li => li.textContent.trim());
+
+			// Ahora puedes pasarlos a tus funciones
+			generateDoc(arrayPrimerosES, arraySegundosES);
+			generateDocIngles(arrayPrimerosEN, arraySegundosEN);
+		});
+	}
+
 	function informacion() {
 		const botonInfo = document.getElementById("botonInformacion");
 
@@ -162,9 +200,12 @@ function inicio() {
 
 			// Estilos con Tailwind para diseño flotante moderno
 			dialogo.className = `
-			bg-[#2a0e43b3] text-white rounded-xl p-6 max-w-md w-full border border-gray-300 shadow-2xl
+			bg-[#2a0e43b3] text-white rounded-xl p-6 
+			max-w-3xl w-full border border-gray-300 shadow-2xl
 			backdrop:bg-black/30 backdrop:backdrop-blur-sm
-		`;
+			`;
+
+			dialogo.style.margin = "auto";
 
 			// Contenido del diálogo
 			dialogo.innerHTML = `
@@ -196,15 +237,11 @@ function inicio() {
 			});
 		});
 	}
-
 	informacion();
 
 
-
-
-
-
 	async function traduccion(primeros, segundos) {
+		console.log("traduzco");
 
 		let platos = [...primeros, ...segundos];
 
@@ -214,17 +251,41 @@ function inicio() {
 		params.append("target_lang", "EN");
 		platos.forEach(p => params.append("text", p));
 
-		fetch("https://api-free.deepl.com/v2/translate", {
-			method: "POST",
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: params.toString()
-		})
-			.then(res => res.json())
-			.then(data => {
-				data.translations.forEach((obj, i) => {
-					console.log(`${platos[i]} → ${obj.text}`);
-				});
+		try {
+			const res = await fetch("https://api-free.deepl.com/v2/translate", {
+				method: "POST",
+				headers: { "Content-Type": "application/x-www-form-urlencoded" },
+				body: params.toString()
 			});
+
+			const data = await res.json();
+
+			// Separar traducciones en primeros y segundos
+			const traduccionesPrimeros = data.translations.slice(0, primeros.length);
+			const traduccionesSegundos = data.translations.slice(primeros.length);
+
+			// Obtener las listas del DOM
+			const listaPrimerosEN = document.querySelector("#listaPrimerosEN");
+			const listaSegundosEN = document.querySelector("#listaSegundosEN");
+
+			// Rellenar lista de primeros en inglés
+			traduccionesPrimeros.forEach(obj => {
+				const li = document.createElement("li");
+				li.textContent = obj.text;
+				listaPrimerosEN.appendChild(li);
+			});
+
+			// Rellenar lista de segundos en inglés
+			traduccionesSegundos.forEach(obj => {
+				const li = document.createElement("li");
+				li.textContent = obj.text;
+				listaSegundosEN.appendChild(li);
+			});
+
+		} catch (error) {
+			console.error("Error en la traducción:", error);
+		}
 	}
+
 
 }

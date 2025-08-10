@@ -1,5 +1,24 @@
 @import "tailwindcss";
 @import "animate.css";
+
+@keyframes moverFondo {
+  50% {
+    background-position: 2000px 2000px;
+  }
+
+  100% {
+    background-position: -2000px -2000px;
+  }
+}
+
+body {
+  background: 
+        url(/fondo.png) repeat,
+        #1B1D36;
+    animation: moverFondo 1250s linear infinite;
+    background-position: 50% 50%;
+    background-blend-mode: soft-light;
+}
 input {
   	border: white 2px solid;
 }
