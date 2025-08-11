@@ -260,11 +260,19 @@ function inicio() {
 		platos.forEach(p => params.append("text", p));
 
 		try {
-			const res = await fetch("https://api-free.deepl.com/v2/translate", {
-				method: "POST",
-				headers: { "Content-Type": "application/x-www-form-urlencoded" },
-				body: params.toString()
-			});
+        // Reemplaza "TU-WORKER-URL" con la URL real de tu worker
+        // Debería ser algo como: https://tu-worker-name.tu-username.workers.dev
+        const res = await fetch("https://backend-menu.adamjanah562005.workers.dev/", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: params.toString()
+        });
+
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
 
 			const data = await res.json();
 
