@@ -200,8 +200,8 @@ export async function generateDoc(arrayPrimeros, arraySegundos) {
             margin: {
               top: 720,      // 1.27 cm
               bottom: 720,   // puede ajustar si desea
-              left: 720,
-              right: 567,
+              left: 900,
+              right: 900,
             },
           },
         },
@@ -262,7 +262,7 @@ export async function generateDoc(arrayPrimeros, arraySegundos) {
           simbolo("****"),
           ...arrayPrimeros.map(p => normal(`*${p}`)),
           simbolo("......................................................................................."),
-           ...arraySegundos.map(p => normal(`*${p}`)),
+          ...arraySegundos.map(p => normal(`*${p}`)),
           simbolo("............................................................................................."),
           normal("*SURTIDO DE POSTRES CASEROS"),
           espacios(""),
@@ -281,5 +281,18 @@ export async function generateDoc(arrayPrimeros, arraySegundos) {
   });
 
   const blob = await Packer.toBlob(doc);
-  saveAs(blob, "menu_especial.docx");
+
+
+  // Obtener fecha actual
+  const fecha = new Date();
+
+  // Formatear fecha en español (día y mes)
+  const opciones: Intl.DateTimeFormatOptions = { day: "2-digit", month: "long" };
+  const fechaFormateada = fecha.toLocaleDateString("es-ES", opciones).toUpperCase();
+
+  // Construir nombre de archivo dinámico
+  const nombreArchivo = `MENU 34 € CASTELLANO DESDE ${fechaFormateada}.docx`;
+
+  // Guardar con FileSaver.js
+  saveAs(blob, nombreArchivo);
 };

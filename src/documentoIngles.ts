@@ -200,8 +200,8 @@ export async function generateDocIngles(arrayPrimeros, arraySegundos) {
             margin: {
               top: 720,      // 1.27 cm
               bottom: 720,   // puede ajustar si desea
-              left: 720,
-              right: 567,
+              left: 900,
+              right: 900,
             },
           },
         },
@@ -262,7 +262,7 @@ export async function generateDocIngles(arrayPrimeros, arraySegundos) {
           simbolo("****"),
           ...arrayPrimeros.map(p => normal(`*${p}`)),
           simbolo("......................................................................................."),
-           ...arraySegundos.map(p => normal(`*${p}`)),
+          ...arraySegundos.map(p => normal(`*${p}`)),
           simbolo("............................................................................................."),
           normal("*ASSORTED HOMEMADE DESSERTS"),
           espacios(""),
@@ -281,5 +281,17 @@ export async function generateDocIngles(arrayPrimeros, arraySegundos) {
   });
 
   const blob = await Packer.toBlob(doc);
-  saveAs(blob, "menu_especial_ingles.docx");
+
+  // Obtener fecha actual
+  const fecha = new Date();
+
+  // Formatear fecha en español (día y mes)
+  const opciones: Intl.DateTimeFormatOptions = { day: "2-digit", month: "long" };
+  const fechaFormateada = fecha.toLocaleDateString("es-ES", opciones).toUpperCase();
+
+  // Construir nombre de archivo dinámico
+  const nombreArchivo = `MENU 34 € (INGLES) DESDE ${fechaFormateada}.docx`;
+
+  // Guardar con FileSaver.js
+  saveAs(blob, nombreArchivo);
 };

@@ -100,7 +100,7 @@ function inicio() {
 
 			<hr class="my-6">
 
-			<div>
+			<div class="mb-10">
 				<h2 class="font-bold text-lg mb-2">SEGUNDOS</h2>
 				<div class="grid grid-cols-2 gap-6">
 					<div>
@@ -115,11 +115,11 @@ function inicio() {
 			</div>
 
 
-			<button id="descargarDocumentos" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-				Descargar
+			<button id="descargarDocumentos" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition flex items-center float-left">
+				Descargar<img src="/TraduccionMenu/download.png" class="w-5 h-5 ms-0.5">
 			</button>
 
-			<button id="cerrarDialogo" class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition">
+			<button id="cerrarDialogo" class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition float-right">
 				✘ Cerrar
 			</button>
 		`;
@@ -200,23 +200,31 @@ function inicio() {
 
 			// Estilos con Tailwind para diseño flotante moderno
 			dialogo.className = `
-			bg-[#2a0e43b3] text-white rounded-xl p-6 
+			bg-[#2a0e43b3] text-white rounded-xl p-6 max-h-[80vh]
 			max-w-3xl w-full border border-gray-300 shadow-2xl
 			backdrop:bg-black/30 backdrop:backdrop-blur-sm
 			`;
 
 			dialogo.style.margin = "auto";
 
-			// Contenido del diálogo
+			// Contenido del diálogo con instrucciones ordenadas
 			dialogo.innerHTML = `
-			<h1 class="text-2xl font-semibold mb-3">Información</h1>
-			<p class="mb-4">
-				Este es un diálogo flotante personalizado usando el elemento <code>&lt;dialog&gt;</code>.
-			</p>
-			<button id="cerrarDialogo" class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition">
-				✘ Cerrar
-			</button>
-		`;
+				<h1 class="text-2xl font-semibold mb-4">INSTRUCCIONES DE USO</h1>
+
+				<h2 class="text-lg font-bold mt-3">Paso 1.</h2>
+				<p>Introduce los platos en español, en su columna correspondiente (<strong>Primero</strong> o <strong>Segundo</strong>). Añade campos si es necesario.</p>
+
+				<h2 class="text-lg font-bold mt-3">Paso 2.</h2>
+				<p>Haz clic en <span class="bg-amber-600 text-white mx-0.5 px-2 py-1.5 rounded-md transition"><strong>CONFIRMAR ✅</strong></span>, se mostrarán los platos introducidos y la traducción al inglés de estos.</p>
+
+				<h2 class="text-lg font-bold mt-3">Paso 3.</h2>
+				<p>Si es todo correcto, haz clic en <strong>Descargar</strong> y obtendrás 2 documentos Word del menú (<em>Español</em> e <em>Inglés</em>).</p>
+
+				<button id="cerrarDialogo" class="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition float-right">
+					✘ Cerrar
+				</button>
+			`;
+
 
 			// Agregar al DOM y mostrar
 			document.body.appendChild(dialogo);
