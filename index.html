@@ -4,14 +4,15 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Vite App</title>
-  <script type="module" crossorigin src="/TraduccionMenu/assets/index-D9S_IHHU.js"></script>
-  <link rel="stylesheet" crossorigin href="/TraduccionMenu/assets/index-Cw6kmkwQ.css">
+	<title>Traductor De Menús</title>
+	<link rel="shortcut icon" href="./icon.ico" type="image/x-icon">
+  <script type="module" crossorigin src="/TraduccionMenu/assets/index-CwGOZuB6.js"></script>
+  <link rel="stylesheet" crossorigin href="/TraduccionMenu/assets/index-hj6yTzAn.css">
 </head>
 
 <body class="bg-[#0d0312] text-[#F4FAFF] min-h-screen flex flex-col items-center justify-center font-sans">
 	<main class="w-full max-w-5xl px-6 py-10">
-		<div id="botonInformacion" class="absolute top-5 right-5 text-md lg:text-3xl px-1.5 pb-1 bg-blue-950 rounded-md hover:bg-blue-800">ⓘ</div>
+		<div id="botonInformacion" class="absolute top-5 right-5 text-md cursor-pointer lg:text-3xl px-1.5 pb-1 bg-blue-950 rounded-md hover:bg-blue-800">ⓘ</div>
 
 		<h1 class="text-5xl lg:text-6xl font-bold text-center mb-12 tracking-wide">TRADUCTOR DE MENÚS</h1>
 
@@ -34,7 +35,7 @@
 						placeholder="Ingrese un plato" spellcheck="true"></textarea>
 				</div>
 				<button id="annadirPrimero"
-					class="mt-6 bg-[#0a921e] text-white px-6 py-2 rounded-md hover:bg-[#306d3a] active:scale-125 active:bg-[#18351c] transition">+Añadir
+					class="mt-6 bg-[#0a921e] text-white px-6 py-2 rounded-md hover:bg-[#306d3a] cursor-pointer active:scale-125 active:bg-[#18351c] transition">+Añadir
 					campo</button>
 			</div>
 
@@ -56,7 +57,7 @@
 						placeholder="Ingrese un plato" spellcheck="true"></textarea>
 				</div>
 				<button id="annadirSegundo"
-					class="mt-6 bg-[#0a921e] text-white px-6 py-2 rounded-md hover:bg-[#306d3a] active:scale-125 active:bg-[#18351c] transition">+Añadir
+					class="mt-6 bg-[#0a921e] text-white px-6 py-2 rounded-md hover:bg-[#306d3a] cursor-pointer active:scale-125 active:bg-[#18351c] transition">+Añadir
 					campo</button>
 			</div>
 		</section>
@@ -64,12 +65,12 @@
 		<!-- Botones Inferiores -->
 		<div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
 			<button id="recogerPlatos"
-				class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 font-bold rounded-md transition">CONFIRMAR ✅</button>
+				class="bg-amber-600 hover:bg-amber-700 cursor-pointer text-white px-8 py-3 font-bold rounded-md transition">CONFIRMAR ✅</button>
 		</div>
 	</main>
 
 	<footer class="bg-[#060108] h-4 w-full fixed bottom-0">
-		<p class="text-xs text-gray-500">Castro Urdiales - Adam Janah - Hotel Las Rocas</p>
+		<p class="text-xs text-gray-500">Castro Urdiales - Adam Janah - <a href="https://www.lasrocashotel.com/es" class="hover:underline">Hotel Las Rocas</a></p>
 	</footer>
 </body>
 
